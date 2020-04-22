@@ -1,0 +1,5530 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>
+   Coronavirus API - Free real-time Coronavirus data for Developers
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Coronavirus Tracker API from thevirustracker.com" name="description"/>
+  <meta content="Coronavirus API - Free real-time Coronavirus data for Developers" property="og:title">
+   <meta content="Coronavirus Tracker API from thevirustracker.com" property="og:description">
+    <link href="https://thevirustracker.com/api" rel="canonical"/>
+    <meta content="https://thevirustracker.com/api" property="og:url">
+     <meta content="https://thevirustracker.com/images/api.jpg" property="og:image"/>
+     <meta content="https://thevirustracker.com/images/api.jpg" property="og:image:secure_url"/>
+     <meta content="summary_large_image" name="twitter:card"/>
+     <meta content="Coronavirus Tracker API from thevirustracker.com" name="twitter:description"/>
+     <meta content="Coronavirus API - Free real-time Coronavirus data for Developers" name="twitter:title"/>
+     <meta content="@thevirustracker" name="twitter:site"/>
+     <meta content="https://thevirustracker.com/images/api.jpg" name="twitter:image"/>
+     <meta content="@thevirustracker" name="twitter:creator"/>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"/>
+     <link href="https://thevirustracker.com/css/styles.min.css" rel="stylesheet"/>
+     <link href="https://thevirustracker.com/timeline/map-app-min.css" rel="stylesheet"/>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+     </script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+     </script>
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700&amp;display=swap" rel="stylesheet"/>
+     <script crossorigin="anonymous" src="https://thevirustracker.com/css/fontawesome.js">
+     </script>
+     <script async="" data-ad-client="ca-pub-7632533948444650" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+     </script>
+     <style>
+      .navbar{border-bottom:2px solid #eee}.NumberOfInfections{color:#1877f2}.deathsnumbers{color:#fb3938}.recoverednumbers{color:#3aa969}.UNRESOLVEDnumbers{color:#9191ac}.newcasestodaytotal{color:#1877f2}.newdeathstodaytotal{color:#fb3938}
+     </style>
+     <link href="/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+     <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+     <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+     <link href="/images/site.webmanifest" rel="manifest"/>
+     <link color="#5bbad5" href="/images/safari-pinned-tab.svg" rel="mask-icon"/>
+     <meta content="#da532c" name="msapplication-TileColor"/>
+     <meta content="#ffffff" name="theme-color"/>
+     <meta content="yes" name="apple-mobile-web-app-capable"/>
+     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    </meta>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <div class="regular closable" id="hellobar-bar">
+   <div class="hb-content-wrapper">
+    <div class="hb-text-wrapper">
+     <div class="hb-headline-text">
+      <p style="color: white">
+       <span>
+        Our site needs your support to continue it's operation and API
+       </span>
+      </p>
+     </div>
+    </div>
+    <a class="hb-cta hb-cta-button" href="https://paypal.me/thevirustracker?locale.x=en_GB" target="_blank">
+     <div class="hb-text-holder">
+      <p>
+       PayPal
+      </p>
+     </div>
+    </a>
+   </div>
+  </div>
+  <div class="hb-close-wrapper">
+   <a class="icon-close" href="javascript:void(0);" onclick="$('#hellobar-bar').fadeOut()" style="color: white">
+   </a>
+  </div>
+  <script type="text/javascript">
+   setTimeout(
+          function()
+          {
+            $('#hellobar-bar').css('display','table');
+            $('#hellobar-bar').show();
+          }, 12);
+  </script>
+  <nav class="navbar navbar-expand-lg navbar-light">
+   <div class="container">
+    <img alt="coronavirus tracker" src="https://thevirustracker.com/images/virus1600.png" style="height:40px;margin-right:10px;"/>
+    <a class="my-0 font-weight-normal h4" href="https://thevirustracker.com/" style="color: black">
+     <span class="d-none d-sm-inline">
+      Coronavirus Tracker
+     </span>
+     <span class="d-inline d-sm-none">
+      coronavirus
+     </span>
+    </a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+     <span class="navbar-toggler-icon">
+     </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+       <a class="nav-link" href="https://thevirustracker.com/covid-19-time-capsule-sheets">
+        <i class="far fa-newspaper">
+        </i>
+        Time Capsule
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="https://thevirustracker.com/all-website-widget">
+        <i class="fas fa-code">
+        </i>
+        Widgets
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="https://thevirustracker.com/coronavirus-faq">
+        <i class="far fa-question-circle">
+        </i>
+        FAQ
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="https://thevirustracker.com/api">
+        <i class="fas fa-cubes">
+        </i>
+        API
+       </a>
+      </li>
+      <li class="nav-item dropdown">
+       <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+        Countries
+       </a>
+       <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+        <a class="dropdown-item" href="/usa-coronavirus-information-us">
+         <img alt="us" src="/images/flags/us.png">
+          USA
+          <strong>
+           738,923
+          </strong>
+          Cases
+          <svg class="blinking" height="30" width="30">
+           <circle cx="15" cy="12" fill="red" r="6">
+           </circle>
+          </svg>
+         </img>
+        </a>
+        <a class="dropdown-item" href="/spain-coronavirus-information-es">
+         <img alt="es" src="/images/flags/es.png"/>
+         Spain
+         <strong>
+          194,416
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/italy-coronavirus-information-it">
+         <img alt="it" src="/images/flags/it.png"/>
+         Italy
+         <strong>
+          175,925
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/france-coronavirus-information-fr">
+         <img alt="fr" src="/images/flags/fr.png"/>
+         France
+         <strong>
+          151,793
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/germany-coronavirus-information-de">
+         <img alt="de" src="/images/flags/de.png"/>
+         Germany
+         <strong>
+          143,724
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/united-kingdom-coronavirus-information-gb">
+         <img alt="gb" src="/images/flags/gb.png"/>
+         United Kingdom
+         <strong>
+          114,217
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/china-coronavirus-information-cn">
+         <img alt="cn" src="/images/flags/cn.png"/>
+         China
+         <strong>
+          82,735
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/turkey-coronavirus-information-tr">
+         <img alt="tr" src="/images/flags/tr.png"/>
+         Turkey
+         <strong>
+          82,329
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/iran-coronavirus-information-ir">
+         <img alt="ir" src="/images/flags/ir.png"/>
+         Iran
+         <strong>
+          80,868
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/belgium-coronavirus-information-be">
+         <img alt="be" src="/images/flags/be.png"/>
+         Belgium
+         <strong>
+          37,183
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/brazil-coronavirus-information-br">
+         <img alt="br" src="/images/flags/br.png"/>
+         Brazil
+         <strong>
+          36,925
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/russia-coronavirus-information-ru">
+         <img alt="ru" src="/images/flags/ru.png"/>
+         Russia
+         <strong>
+          36,793
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/canada-coronavirus-information-ca">
+         <img alt="ca" src="/images/flags/ca.png"/>
+         Canada
+         <strong>
+          33,383
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/netherlands-coronavirus-information-nl">
+         <img alt="nl" src="/images/flags/nl.png"/>
+         Netherlands
+         <strong>
+          31,589
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/switzerland-coronavirus-information-ch">
+         <img alt="ch" src="/images/flags/ch.png"/>
+         Switzerland
+         <strong>
+          27,404
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/portugal-coronavirus-information-pt">
+         <img alt="pt" src="/images/flags/pt.png"/>
+         Portugal
+         <strong>
+          19,685
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/india-coronavirus-information-in">
+         <img alt="in" src="/images/flags/in.png"/>
+         India
+         <strong>
+          16,365
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/ireland-coronavirus-information-ie">
+         <img alt="ie" src="/images/flags/ie.png"/>
+         Ireland
+         <strong>
+          14,758
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/austria-coronavirus-information-at">
+         <img alt="at" src="/images/flags/at.png"/>
+         Austria
+         <strong>
+          14,671
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/peru-coronavirus-information-pe">
+         <img alt="pe" src="/images/flags/pe.png"/>
+         Peru
+         <strong>
+          14,420
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/sweden-coronavirus-information-se">
+         <img alt="se" src="/images/flags/se.png"/>
+         Sweden
+         <strong>
+          13,822
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/israel-coronavirus-information-il">
+         <img alt="il" src="/images/flags/il.png"/>
+         Israel
+         <strong>
+          13,362
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/japan-coronavirus-information-jp">
+         <img alt="jp" src="/images/flags/jp.png"/>
+         Japan
+         <strong>
+          10,296
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/chile-coronavirus-information-cl">
+         <img alt="cl" src="/images/flags/cl.png"/>
+         Chile
+         <strong>
+          9,730
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/ecuador-coronavirus-information-ec">
+         <img alt="ec" src="/images/flags/ec.png"/>
+         Ecuador
+         <strong>
+          9,022
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/poland-coronavirus-information-pl">
+         <img alt="pl" src="/images/flags/pl.png"/>
+         Poland
+         <strong>
+          8,742
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/romania-coronavirus-information-ro">
+         <img alt="ro" src="/images/flags/ro.png"/>
+         Romania
+         <strong>
+          8,418
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/saudi-arabia-coronavirus-information-sa">
+         <img alt="sa" src="/images/flags/sa.png"/>
+         Saudi Arabia
+         <strong>
+          8,274
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/pakistan-coronavirus-information-pk">
+         <img alt="pk" src="/images/flags/pk.png"/>
+         Pakistan
+         <strong>
+          7,993
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/mexico-coronavirus-information-mx">
+         <img alt="mx" src="/images/flags/mx.png"/>
+         Mexico
+         <strong>
+          7,497
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/denmark-coronavirus-information-dk">
+         <img alt="dk" src="/images/flags/dk.png"/>
+         Denmark
+         <strong>
+          7,242
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/norway-coronavirus-information-no">
+         <img alt="no" src="/images/flags/no.png"/>
+         Norway
+         <strong>
+          7,069
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/czechia-coronavirus-information-cz">
+         <img alt="cz" src="/images/flags/cz.png"/>
+         Czechia
+         <strong>
+          6,657
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/south-korea-coronavirus-information-kr">
+         <img alt="kr" src="/images/flags/kr.png"/>
+         South Korea
+         <strong>
+          6,593
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/australia-coronavirus-information-au">
+         <img alt="au" src="/images/flags/au.png"/>
+         Australia
+         <strong>
+          6,586
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/uae-coronavirus-information-ae">
+         <img alt="ae" src="/images/flags/ae.png"/>
+         UAE
+         <strong>
+          6,302
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/indonesia-coronavirus-information-id">
+         <img alt="id" src="/images/flags/id.png"/>
+         Indonesia
+         <strong>
+          6,248
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/philippines-coronavirus-information-ph">
+         <img alt="ph" src="/images/flags/ph.png"/>
+         Philippines
+         <strong>
+          6,087
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/serbia-coronavirus-information-rs">
+         <img alt="rs" src="/images/flags/rs.png"/>
+         Serbia
+         <strong>
+          5,994
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/singapore-coronavirus-information-sg">
+         <img alt="sg" src="/images/flags/sg.png"/>
+         Singapore
+         <strong>
+          5,992
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/ukraine-coronavirus-information-ua">
+         <img alt="ua" src="/images/flags/ua.png"/>
+         Ukraine
+         <strong>
+          5,449
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/malaysia-coronavirus-information-my">
+         <img alt="my" src="/images/flags/my.png"/>
+         Malaysia
+         <strong>
+          5,305
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/qatar-coronavirus-information-qa">
+         <img alt="qa" src="/images/flags/qa.png"/>
+         Qatar
+         <strong>
+          5,008
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/belarus-coronavirus-information-by">
+         <img alt="by" src="/images/flags/by.png"/>
+         Belarus
+         <strong>
+          4,779
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/dominican-republic-coronavirus-information-do">
+         <img alt="do" src="/images/flags/do.png"/>
+         Dominican Republic
+         <strong>
+          4,335
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/panama-coronavirus-information-pa">
+         <img alt="pa" src="/images/flags/pa.png"/>
+         Panama
+         <strong>
+          4,273
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/finland-coronavirus-information-fi">
+         <img alt="fi" src="/images/flags/fi.png"/>
+         Finland
+         <strong>
+          3,681
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/colombia-coronavirus-information-co">
+         <img alt="co" src="/images/flags/co.png"/>
+         Colombia
+         <strong>
+          3,621
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/luxembourg-coronavirus-information-lu">
+         <img alt="lu" src="/images/flags/lu.png"/>
+         Luxembourg
+         <strong>
+          3,537
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/south-africa-coronavirus-information-za">
+         <img alt="za" src="/images/flags/za.png"/>
+         South Africa
+         <strong>
+          3,034
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/egypt-coronavirus-information-eg">
+         <img alt="eg" src="/images/flags/eg.png"/>
+         Egypt
+         <strong>
+          3,032
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/argentina-coronavirus-information-ar">
+         <img alt="ar" src="/images/flags/ar.png"/>
+         Argentina
+         <strong>
+          2,839
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/thailand-coronavirus-information-th">
+         <img alt="th" src="/images/flags/th.png"/>
+         Thailand
+         <strong>
+          2,765
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/morocco-coronavirus-information-ma">
+         <img alt="ma" src="/images/flags/ma.png"/>
+         Morocco
+         <strong>
+          2,685
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/algeria-coronavirus-information-dz">
+         <img alt="dz" src="/images/flags/dz.png"/>
+         Algeria
+         <strong>
+          2,534
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/moldova-coronavirus-information-md">
+         <img alt="md" src="/images/flags/md.png"/>
+         Moldova
+         <strong>
+          2,378
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/greece-coronavirus-information-gr">
+         <img alt="gr" src="/images/flags/gr.png"/>
+         Greece
+         <strong>
+          2,235
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/bangladesh-coronavirus-information-bd">
+         <img alt="bd" src="/images/flags/bd.png"/>
+         Bangladesh
+         <strong>
+          2,144
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/hungary-coronavirus-information-hu">
+         <img alt="hu" src="/images/flags/hu.png"/>
+         Hungary
+         <strong>
+          1,916
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/croatia-coronavirus-information-hr">
+         <img alt="hr" src="/images/flags/hr.png"/>
+         Croatia
+         <strong>
+          1,832
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/iceland-coronavirus-information-is">
+         <img alt="is" src="/images/flags/is.png"/>
+         Iceland
+         <strong>
+          1,760
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/kuwait-coronavirus-information-kw">
+         <img alt="kw" src="/images/flags/kw.png"/>
+         Kuwait
+         <strong>
+          1,751
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/kazakhstan-coronavirus-information-kz">
+         <img alt="kz" src="/images/flags/kz.png"/>
+         Kazakhstan
+         <strong>
+          1,615
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/iraq-coronavirus-information-iq">
+         <img alt="iq" src="/images/flags/iq.png"/>
+         Iraq
+         <strong>
+          1,513
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/estonia-coronavirus-information-ee">
+         <img alt="ee" src="/images/flags/ee.png"/>
+         Estonia
+         <strong>
+          1,512
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/uzbekistan-coronavirus-information-uz">
+         <img alt="uz" src="/images/flags/uz.png"/>
+         Uzbekistan
+         <strong>
+          1,495
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/new-zealand-coronavirus-information-nz">
+         <img alt="nz" src="/images/flags/nz.png"/>
+         New Zealand
+         <strong>
+          1,431
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/azerbaijan-coronavirus-information-az">
+         <img alt="az" src="/images/flags/az.png"/>
+         Azerbaijan
+         <strong>
+          1,373
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/slovenia-coronavirus-information-si">
+         <img alt="si" src="/images/flags/si.png"/>
+         Slovenia
+         <strong>
+          1,317
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/lithuania-coronavirus-information-lt">
+         <img alt="lt" src="/images/flags/lt.png"/>
+         Lithuania
+         <strong>
+          1,298
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/bosnia-and-herzegovina-coronavirus-information-ba">
+         <img alt="ba" src="/images/flags/ba.png"/>
+         Bosnia and Herzegovina
+         <strong>
+          1,268
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/oman-coronavirus-information-om">
+         <img alt="om" src="/images/flags/om.png"/>
+         Oman
+         <strong>
+          1,266
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/armenia-coronavirus-information-am">
+         <img alt="am" src="/images/flags/am.png"/>
+         Armenia
+         <strong>
+          1,248
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/macedonia-coronavirus-information-mk">
+         <img alt="mk" src="/images/flags/mk.png"/>
+         Macedonia
+         <strong>
+          1,170
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/slovakia-coronavirus-information-sk">
+         <img alt="sk" src="/images/flags/sk.png"/>
+         Slovakia
+         <strong>
+          1,089
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/hong-kong-coronavirus-information-hk">
+         <img alt="hk" src="/images/flags/hk.png"/>
+         Hong Kong
+         <strong>
+          1,024
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/cameroon-coronavirus-information-cm">
+         <img alt="cm" src="/images/flags/cm.png"/>
+         Cameroon
+         <strong>
+          1,017
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/afghanistan-coronavirus-information-af">
+         <img alt="af" src="/images/flags/af.png"/>
+         Afghanistan
+         <strong>
+          993
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/cuba-coronavirus-information-cu">
+         <img alt="cu" src="/images/flags/cu.png"/>
+         Cuba
+         <strong>
+          986
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/bulgaria-coronavirus-information-bg">
+         <img alt="bg" src="/images/flags/bg.png"/>
+         Bulgaria
+         <strong>
+          884
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/tunisia-coronavirus-information-tn">
+         <img alt="tn" src="/images/flags/tn.png"/>
+         Tunisia
+         <strong>
+          866
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/ghana-coronavirus-information-gh">
+         <img alt="gh" src="/images/flags/gh.png"/>
+         Ghana
+         <strong>
+          834
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/ivory-coast-coronavirus-information-ci">
+         <img alt="ci" src="/images/flags/ci.png"/>
+         Ivory Coast
+         <strong>
+          801
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/cyprus-coronavirus-information-cy">
+         <img alt="cy" src="/images/flags/cy.png"/>
+         Cyprus
+         <strong>
+          761
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/djibouti-coronavirus-information-dj">
+         <img alt="dj" src="/images/flags/dj.png"/>
+         Djibouti
+         <strong>
+          732
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/latvia-coronavirus-information-lv">
+         <img alt="lv" src="/images/flags/lv.png"/>
+         Latvia
+         <strong>
+          727
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/diamond-princess-coronavirus-information-dp">
+         <img alt="dp" src="/images/smallboat.png"/>
+         Diamond Princess
+         <strong>
+          712
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/lebanon-coronavirus-information-lb">
+         <img alt="lb" src="/images/flags/lb.png"/>
+         Lebanon
+         <strong>
+          672
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/costa-rica-coronavirus-information-cr">
+         <img alt="cr" src="/images/flags/cr.png"/>
+         Costa Rica
+         <strong>
+          655
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/niger-coronavirus-information-ne">
+         <img alt="ne" src="/images/flags/ne.png"/>
+         Niger
+         <strong>
+          639
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/burkina-faso-coronavirus-information-bf">
+         <img alt="bf" src="/images/flags/bf.png"/>
+         Burkina Faso
+         <strong>
+          565
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/kyrgyzstan-coronavirus-information-kg">
+         <img alt="kg" src="/images/flags/kg.png"/>
+         Kyrgyzstan
+         <strong>
+          554
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/albania-coronavirus-information-al">
+         <img alt="al" src="/images/flags/al.png"/>
+         Albania
+         <strong>
+          548
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/nigeria-coronavirus-information-ng">
+         <img alt="ng" src="/images/flags/ng.png"/>
+         Nigeria
+         <strong>
+          542
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/bolivia-coronavirus-information-bo">
+         <img alt="bo" src="/images/flags/bo.png"/>
+         Bolivia
+         <strong>
+          520
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/guinea-coronavirus-information-gn">
+         <img alt="gn" src="/images/flags/gn.png"/>
+         Guinea
+         <strong>
+          518
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/uruguay-coronavirus-information-uy">
+         <img alt="uy" src="/images/flags/uy.png"/>
+         Uruguay
+         <strong>
+          517
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/honduras-coronavirus-information-hn">
+         <img alt="hn" src="/images/flags/hn.png"/>
+         Honduras
+         <strong>
+          472
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/taiwan-coronavirus-information-tw">
+         <img alt="tw" src="/images/flags/tw.png"/>
+         Taiwan
+         <strong>
+          420
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/palestine-coronavirus-information-ps">
+         <img alt="ps" src="/images/flags/ps.png"/>
+         Palestine
+         <strong>
+          418
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/jordan-coronavirus-information-jo">
+         <img alt="jo" src="/images/flags/jo.png"/>
+         Jordan
+         <strong>
+          413
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/georgia-coronavirus-information-ge">
+         <img alt="ge" src="/images/flags/ge.png"/>
+         Georgia
+         <strong>
+          388
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/senegal-coronavirus-information-sn">
+         <img alt="sn" src="/images/flags/sn.png"/>
+         Senegal
+         <strong>
+          350
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/montenegro-coronavirus-information-me">
+         <img alt="me" src="/images/flags/me.png"/>
+         Montenegro
+         <strong>
+          308
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/vietnam-coronavirus-information-vn">
+         <img alt="vn" src="/images/flags/vn.png"/>
+         Vietnam
+         <strong>
+          268
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/kenya-coronavirus-information-ke">
+         <img alt="ke" src="/images/flags/ke.png"/>
+         Kenya
+         <strong>
+          262
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/guatemala-coronavirus-information-gt">
+         <img alt="gt" src="/images/flags/gt.png"/>
+         Guatemala
+         <strong>
+          257
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/sri-lanka-coronavirus-information-lk">
+         <img alt="lk" src="/images/flags/lk.png"/>
+         Sri Lanka
+         <strong>
+          254
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/venezuela-coronavirus-information-ve">
+         <img alt="ve" src="/images/flags/ve.png"/>
+         Venezuela
+         <strong>
+          227
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/mali-coronavirus-information-ml">
+         <img alt="ml" src="/images/flags/ml.png"/>
+         Mali
+         <strong>
+          216
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/paraguay-coronavirus-information-py">
+         <img alt="py" src="/images/flags/py.png"/>
+         Paraguay
+         <strong>
+          206
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/el-salvador-coronavirus-information-sv">
+         <img alt="sv" src="/images/flags/sv.png"/>
+         El Salvador
+         <strong>
+          201
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/jamaica-coronavirus-information-jm">
+         <img alt="jm" src="/images/flags/jm.png"/>
+         Jamaica
+         <strong>
+          173
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/tanzania-coronavirus-information-tz">
+         <img alt="tz" src="/images/flags/tz.png"/>
+         Tanzania
+         <strong>
+          147
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/rwanda-coronavirus-information-rw">
+         <img alt="rw" src="/images/flags/rw.png"/>
+         Rwanda
+         <strong>
+          144
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/congo-coronavirus-information-cg">
+         <img alt="cg" src="/images/flags/cg.png"/>
+         Congo
+         <strong>
+          143
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/brunei-darussalam-coronavirus-information-bn">
+         <img alt="bn" src="/images/flags/bn.png"/>
+         Brunei Darussalam
+         <strong>
+          137
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/somalia-coronavirus-information-so">
+         <img alt="so" src="/images/flags/so.png"/>
+         Somalia
+         <strong>
+          135
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/cambodia-coronavirus-information-kh">
+         <img alt="kh" src="/images/flags/kh.png"/>
+         Cambodia
+         <strong>
+          122
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/madagascar-coronavirus-information-mg">
+         <img alt="mg" src="/images/flags/mg.png"/>
+         Madagascar
+         <strong>
+          120
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/trinidad-and-tobago-coronavirus-information-tt">
+         <img alt="tt" src="/images/flags/tt.png"/>
+         Trinidad and Tobago
+         <strong>
+          114
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/gabon-coronavirus-information-ga">
+         <img alt="ga" src="/images/flags/ga.png"/>
+         Gabon
+         <strong>
+          108
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/myanmar-coronavirus-information-mm">
+         <img alt="mm" src="/images/flags/mm.png"/>
+         Myanmar
+         <strong>
+          107
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/ethiopia-coronavirus-information-et">
+         <img alt="et" src="/images/flags/et.png"/>
+         Ethiopia
+         <strong>
+          105
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/french-guiana-coronavirus-information-gf">
+         <img alt="gf" src="/images/flags/gf.png"/>
+         French Guiana
+         <strong>
+          96
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/togo-coronavirus-information-tg">
+         <img alt="tg" src="/images/flags/tg.png"/>
+         Togo
+         <strong>
+          84
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/equatorial-guinea-coronavirus-information-gq">
+         <img alt="gq" src="/images/flags/gq.png"/>
+         Equatorial Guinea
+         <strong>
+          79
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/liberia-coronavirus-information-lr">
+         <img alt="lr" src="/images/flags/lr.png"/>
+         Liberia
+         <strong>
+          76
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/sudan-coronavirus-information-sd">
+         <img alt="sd" src="/images/flags/sd.png"/>
+         Sudan
+         <strong>
+          66
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/guyana-coronavirus-information-gy">
+         <img alt="gy" src="/images/flags/gy.png"/>
+         Guyana
+         <strong>
+          63
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/zambia-coronavirus-information-zm">
+         <img alt="zm" src="/images/flags/zm.png"/>
+         Zambia
+         <strong>
+          57
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/uganda-coronavirus-information-ug">
+         <img alt="ug" src="/images/flags/ug.png"/>
+         Uganda
+         <strong>
+          55
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/bahamas-coronavirus-information-bs">
+         <img alt="bs" src="/images/flags/bs.png"/>
+         Bahamas
+         <strong>
+          55
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/libya-coronavirus-information-ly">
+         <img alt="ly" src="/images/flags/ly.png"/>
+         Libya
+         <strong>
+          49
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/guinea-bissau-coronavirus-information-gw">
+         <img alt="gw" src="/images/flags/gw.png"/>
+         Guinea-Bissau
+         <strong>
+          46
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/haiti-coronavirus-information-ht">
+         <img alt="ht" src="/images/flags/ht.png"/>
+         Haiti
+         <strong>
+          44
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/eritrea-coronavirus-information-er">
+         <img alt="er" src="/images/flags/er.png"/>
+         Eritrea
+         <strong>
+          39
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/puerto-rico-coronavirus-information-pr">
+         <img alt="pr" src="/images/flags/pr.png"/>
+         Puerto Rico
+         <strong>
+          39
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/mozambique-coronavirus-information-mz">
+         <img alt="mz" src="/images/flags/mz.png"/>
+         Mozambique
+         <strong>
+          35
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/benin-coronavirus-information-bj">
+         <img alt="bj" src="/images/flags/bj.png"/>
+         Benin
+         <strong>
+          35
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/chad-coronavirus-information-td">
+         <img alt="td" src="/images/flags/td.png"/>
+         Chad
+         <strong>
+          33
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/mongolia-coronavirus-information-mn">
+         <img alt="mn" src="/images/flags/mn.png"/>
+         Mongolia
+         <strong>
+          32
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/nepal-coronavirus-information-np">
+         <img alt="np" src="/images/flags/np.png"/>
+         Nepal
+         <strong>
+          31
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/sierra-leone-coronavirus-information-sl">
+         <img alt="sl" src="/images/flags/sl.png"/>
+         Sierra Leone
+         <strong>
+          30
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/zimbabwe-coronavirus-information-zw">
+         <img alt="zw" src="/images/flags/zw.png"/>
+         Zimbabwe
+         <strong>
+          25
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/angola-coronavirus-information-ao">
+         <img alt="ao" src="/images/flags/ao.png"/>
+         Angola
+         <strong>
+          24
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/timor-leste-coronavirus-information-tl">
+         <img alt="tl" src="/images/flags/tl.png"/>
+         Timor-Leste
+         <strong>
+          18
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/new-caledonia-coronavirus-information-nc">
+         <img alt="nc" src="/images/flags/nc.png"/>
+         New Caledonia
+         <strong>
+          18
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/belize-coronavirus-information-bz">
+         <img alt="bz" src="/images/flags/bz.png"/>
+         Belize
+         <strong>
+          18
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/fiji-coronavirus-information-fj">
+         <img alt="fj" src="/images/flags/fj.png"/>
+         Fiji
+         <strong>
+          17
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/malawi-coronavirus-information-mw">
+         <img alt="mw" src="/images/flags/mw.png"/>
+         Malawi
+         <strong>
+          17
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/namibia-coronavirus-information-na">
+         <img alt="na" src="/images/flags/na.png"/>
+         Namibia
+         <strong>
+          16
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/botswana-coronavirus-information-bw">
+         <img alt="bw" src="/images/flags/bw.png"/>
+         Botswana
+         <strong>
+          15
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/falkland-islands-coronavirus-information-fk">
+         <img alt="fk" src="/images/flags/fk.png"/>
+         Falkland Islands
+         <strong>
+          11
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/greenland-coronavirus-information-gl">
+         <img alt="gl" src="/images/flags/gl.png"/>
+         Greenland
+         <strong>
+          11
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/suriname-coronavirus-information-sr">
+         <img alt="sr" src="/images/flags/sr.png"/>
+         Suriname
+         <strong>
+          10
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/nicaragua-coronavirus-information-ni">
+         <img alt="ni" src="/images/flags/ni.png"/>
+         Nicaragua
+         <strong>
+          9
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/gambia-coronavirus-information-gm">
+         <img alt="gm" src="/images/flags/gm.png"/>
+         Gambia
+         <strong>
+          9
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/mauritania-coronavirus-information-mr">
+         <img alt="mr" src="/images/flags/mr.png"/>
+         Mauritania
+         <strong>
+          7
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/papua-new-guinea-coronavirus-information-pg">
+         <img alt="pg" src="/images/flags/pg.png"/>
+         Papua New Guinea
+         <strong>
+          7
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/western-sahara-coronavirus-information-eh">
+         <img alt="eh" src="/images/flags/eh.png"/>
+         Western Sahara
+         <strong>
+          6
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/burundi-coronavirus-information-bi">
+         <img alt="bi" src="/images/flags/bi.png"/>
+         Burundi
+         <strong>
+          5
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/bhutan-coronavirus-information-bt">
+         <img alt="bt" src="/images/flags/bt.png"/>
+         Bhutan
+         <strong>
+          5
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/south-sudan-coronavirus-information-ss">
+         <img alt="ss" src="/images/flags/ss.png"/>
+         South Sudan
+         <strong>
+          4
+         </strong>
+         Cases
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/yemen-coronavirus-information-ye">
+         <img alt="ye" src="/images/flags/ye.png"/>
+         Yemen
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/central-african-republic-coronavirus-information-cf">
+         <img alt="cf" src="/images/flags/cf.png"/>
+         Central African Republic
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/dr-congo-coronavirus-information-cd">
+         <img alt="cd" src="/images/flags/cd.png"/>
+         DR Congo
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/kosovo-coronavirus-information-xk">
+         <img alt="xk" src="/images/flags/xk.png"/>
+         Kosovo
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/solomon-islands-coronavirus-information-sb">
+         <img alt="sb" src="/images/flags/sb.png"/>
+         Solomon Islands
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/north-korea-coronavirus-information-kp">
+         <img alt="kp" src="/images/flags/kp.png"/>
+         North Korea
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/turkmenistan-coronavirus-information-tm">
+         <img alt="tm" src="/images/flags/tm.png"/>
+         Turkmenistan
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/vanuatu-coronavirus-information-vu">
+         <img alt="vu" src="/images/flags/vu.png"/>
+         Vanuatu
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/lao-coronavirus-information-la">
+         <img alt="la" src="/images/flags/la.png"/>
+         Lao
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/korea-coronavirus-information-kp">
+         <img alt="kp" src="/images/flags/kp.png"/>
+         Korea
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/republic-of-kosovo-coronavirus-information-xk">
+         <img alt="xk" src="/images/flags/xk.png"/>
+         Republic of Kosovo
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/french-southern-territories-coronavirus-information-tf">
+         <img alt="tf" src="/images/flags/tf.png"/>
+         French Southern Territories
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/svalbard-and-jan-mayen-coronavirus-information-sj">
+         <img alt="sj" src="/images/flags/sj.png"/>
+         Svalbard and Jan Mayen
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/swaziland-coronavirus-information-sz">
+         <img alt="sz" src="/images/flags/sz.png"/>
+         Swaziland
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/democratic-republic-of-congo-coronavirus-information-cd">
+         <img alt="cd" src="/images/flags/cd.png"/>
+         Democratic Republic of Congo
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/syrian-arab-republic-coronavirus-information-sy">
+         <img alt="sy" src="/images/flags/sy.png"/>
+         Syrian Arab Republic
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/tajikistan-coronavirus-information-tj">
+         <img alt="tj" src="/images/flags/tj.png"/>
+         Tajikistan
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+        <a class="dropdown-item" href="/lesotho-coronavirus-information-ls">
+         <img alt="ls" src="/images/flags/ls.png"/>
+         Lesotho
+         <strong>
+          1
+         </strong>
+         Case
+         <svg class="blinking" height="30" width="30">
+          <circle cx="15" cy="12" fill="red" r="6">
+          </circle>
+         </svg>
+        </a>
+       </div>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <div class="container">
+   <div class="alert alert-success mt-2 mb-1" role="alert">
+    We know that this is a stressful time for you so we made this game to help you relax,
+    <a href="https://fastfinderz.com/find-the-numbers-1-to-50-t5hw-game" target="_blank">
+     <b>
+      Play Find The Numbers 1 To 50
+     </b>
+    </a>
+   </div>
+   <h1>
+    Coronavirus Data API
+   </h1>
+   <div class="text-left">
+    <iframe allow="encrypted-media" allowtransparency="true" frameborder="0" height="20" scrolling="no" src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fthevirustracker.com%2Fapi&amp;layout=button_count&amp;size=small&amp;width=97&amp;height=20&amp;appId" style="border:none;overflow:hidden" width="97">
+    </iframe>
+    <a class="twitter-share-button" data-show-count="false" data-via="thevirustracker" href="https://twitter.com/share?ref_src=twsrc%5Etfw">
+     Tweet
+    </a>
+    <script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js">
+    </script>
+   </div>
+   <h2>
+    How to use
+   </h2>
+   <p>
+    We currently have 5 options for our free to use Coronavirus Tracker API
+    <a href="#Global">
+     global stats
+    </a>
+    ,
+    <a href="#CountryTotals">
+     all country stats
+    </a>
+    ,
+    <a href="#CountryTotal">
+     country stats
+    </a>
+    ,
+    <a href="#Timeline">
+     full timeline
+    </a>
+    ,
+    <a href="#Country">
+     country timeline
+    </a>
+    You can use AJAX to call the Free thevirustracker.com API and will receive data in return. If you are using jQuery, you can use the $.ajax() function in the code and either code snippet below to get started.
+   </p>
+   <h1 id="Global">
+    Global Statistics API
+   </h1>
+   <p>
+    You can use AJAX to call the thevirustracker.com API and will receive all of the current globally accumulated stats from Coronavirus Tracker.
+   </p>
+   <pre>$.ajax({
+  url: '<span>https://api.thevirustracker.com/free-api?global=stats</span>',
+  dataType: '<span>json</span>',
+  success: function(<span>data</span>) {
+    console.log(<span>data</span>);
+  }
+});
+</pre>
+   <h2>
+    Global Statistics API Results (snippet)
+   </h2>
+   <p>
+    The application will provide you with a JSON object that you can parse and apply to your application.
+   </p>
+   <pre>[{"date":"1/22/20","data":[{"countrycode":"US","countrylabel":"USA","showcountrylabelcases":"no","labelpositioncases":"","showcountrylabeldeaths":"","labelpositiondeaths":"","showcountrylabelrecovered":"no","labelpositionrecovered":"","casesoverride":"","deathsoverride":"","recoveredoverride":"","columnsonrightshouldbeemptywhennotinuseifyouenteranumberitwillalwaysshowunlessyoudeleteit":"","emergencycasesoverride":"","emergencydeathsoverride":"","totalcases":"","totaldeaths":"","totalrecovered":""}]
+</pre>
+   <hr/>
+   <h1 id="CountryTotals">
+    All Country Statistics API
+   </h1>
+   <p>
+    You can use AJAX to call the thevirustracker.com API and will receive all of the current accumulated stats from Coronavirus Tracker for all of our indexed Country's.
+   </p>
+   <pre>$.ajax({
+  url: '<span>https://api.thevirustracker.com/free-api?countryTotals=ALL</span>',
+  dataType: '<span>json</span>',
+  success: function(<span>data</span>) {
+    console.log(<span>data</span>);
+  }
+});
+</pre>
+   <h2>
+    All Country Statistics API Results (snippet)
+   </h2>
+   <p>
+    The application will provide you with a JSON object that you can parse and apply to your application.
+   </p>
+   <pre>{"sitedata":[{"info":{"source":"https://thevirustracker.com/"}}], "countryitems":[{"1":{"ourid":1, "title":"Afghanistan", "code":"AF", "source":"https://thevirustracker.com/afghanistan-coronavirus-information-af", "total_cases":94, "total_recovered":2, "total_unresolved":0, "total_deaths":4, "total_new_cases_today":0, "total_new_deaths_today":0, "total_active_cases":88, "total_serious_cases":0},"stat":"ok"}]}
+</pre>
+   <hr/>
+   <h1 id="CountryTotal">
+    Country Statistics API
+   </h1>
+   <p>
+    You can use AJAX to call the thevirustracker.com API and will receive all of the current accumulated stats from Coronavirus Tracker for a specified Country. The full country code list is
+    <a href="#indexpage">
+     here
+    </a>
+    .
+   </p>
+   <pre>$.ajax({
+  url: '<span>https://api.thevirustracker.com/free-api?countryTotal=US</span>',
+  dataType: '<span>json</span>',
+  success: function(<span>data</span>) {
+    console.log(<span>data</span>);
+  }
+});
+</pre>
+   <h2>
+    Country Statistics API Results (snippet)
+   </h2>
+   <p>
+    The application will provide you with a JSON object that you can parse and apply to your application.
+   </p>
+   <pre>{"countrydata":[{"info":{"ourid":167, "title":"USA", "code":"US", "source":"https://thevirustracker.com/usa-coronavirus-information-us"}, "total_cases":2340, "total_recovered":41, "total_unresolved":0, "total_deaths":50, "total_new_cases_today":93, "total_new_deaths_today":1, "total_active_cases":2249, "total_serius_cases":10}], "countrynewsitems":[{"1":{"newsid":2150, "title":"Coronavirus USA Update: Second US Death Confirmed New York Reports First Case", "image":"https://thevirustracker.com/news-images//coronavirus-usa-update-second-us-death-confirmed-new-york-reports-first-case-lvhcYw.jpg", "time":"2 March 2020 14:23", "url":"https://thevirustracker.com/story/coronavirus-usa-update-second-us-death-confirmed-new-york-reports-first-case-lvhcYw"},"stat":"ok"}]}
+</pre>
+   <hr/>
+   <h1 id="Timeline">
+    Full Timeline API
+   </h1>
+   <p>
+    You can use AJAX to call the Free thevirustracker.com API and will receive all of the timeline data from the Coronavirus Tracker.
+   </p>
+   <pre>$.ajax({
+  url: '<span>https://thevirustracker.com/timeline/map-data.json</span>',
+  dataType: '<span>json</span>',
+  success: function(<span>data</span>) {
+    console.log(<span>data</span>);
+  }
+});
+</pre>
+   <hr/>
+   <h1 id="Country">
+    Country Timeline API
+   </h1>
+   <p>
+    You can use AJAX to call the thevirustracker.com API and will receive all of the data for a specific Country from Coronavirus Tracker.
+   </p>
+   <p>
+    US, GB. IT, ES, IN, CH the full country code list is
+    <a href="#indexpage">
+     here
+    </a>
+    .
+   </p>
+   <pre>$.ajax({
+  url: '<span>https://api.thevirustracker.com/free-api?countryTimeline=US</span>',
+  dataType: '<span>json</span>',
+  success: function(<span>data</span>) {
+    console.log(<span>data</span>);
+  }
+});
+</pre>
+   <h2>
+    Country Stats API Results (snippet)
+   </h2>
+   <p>
+    The application will provide you with a JSON object that you can parse and apply to your application.
+   </p>
+   <pre>{"countrytimelinedata":[{"info":{"ourid":167, "title":"USA", "code":"US", "source":"https://thevirustracker.com/usa-coronavirus-information-us"}}],"timelineitems":[{"1/23/2020":{"new_daily_cases":1,"new_daily_deaths":0,"total_cases":1,"total_recoveries":0,"total_deaths":0},"1/24/2020":{"new_daily_cases":1,"new_daily_deaths":0,"total_cases":2,"total_recoveries":0,"total_deaths":0},"1/25/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":2,"total_recoveries":0,"total_deaths":0},"1/26/2020":{"new_daily_cases":3,"new_daily_deaths":0,"total_cases":5,"total_recoveries":0,"total_deaths":0},"1/27/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":5,"total_recoveries":0,"total_deaths":0},"1/28/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":5,"total_recoveries":0,"total_deaths":0},"1/29/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":5,"total_recoveries":0,"total_deaths":0},"1/30/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":5,"total_recoveries":0,"total_deaths":0},"1/31/2020":{"new_daily_cases":2,"new_daily_deaths":0,"total_cases":7,"total_recoveries":0,"total_deaths":0},"2/1/2020":{"new_daily_cases":1,"new_daily_deaths":0,"total_cases":8,"total_recoveries":0,"total_deaths":0},"2/2/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":8,"total_recoveries":0,"total_deaths":0},"2/3/2020":{"new_daily_cases":3,"new_daily_deaths":0,"total_cases":11,"total_recoveries":0,"total_deaths":0},"2/4/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":11,"total_recoveries":0,"total_deaths":0},"2/5/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":11,"total_recoveries":0,"total_deaths":0},"2/6/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":11,"total_recoveries":0,"total_deaths":0},"2/7/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":11,"total_recoveries":0,"total_deaths":0},"2/8/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":11,"total_recoveries":0,"total_deaths":0},"2/9/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":11,"total_recoveries":3,"total_deaths":0},"2/10/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":11,"total_recoveries":3,"total_deaths":0},"2/11/2020":{"new_daily_cases":1,"new_daily_deaths":0,"total_cases":12,"total_recoveries":3,"total_deaths":0},"2/12/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":12,"total_recoveries":3,"total_deaths":0},"2/13/2020":{"new_daily_cases":1,"new_daily_deaths":0,"total_cases":13,"total_recoveries":3,"total_deaths":0},"2/14/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":13,"total_recoveries":3,"total_deaths":0},"2/15/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":13,"total_recoveries":3,"total_deaths":0},"2/16/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":13,"total_recoveries":3,"total_deaths":0},"2/17/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":13,"total_recoveries":3,"total_deaths":0},"2/18/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":13,"total_recoveries":3,"total_deaths":0},"2/19/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":13,"total_recoveries":3,"total_deaths":0},"2/20/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":13,"total_recoveries":3,"total_deaths":0},"2/21/2020":{"new_daily_cases":2,"new_daily_deaths":0,"total_cases":15,"total_recoveries":5,"total_deaths":0},"2/22/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":15,"total_recoveries":5,"total_deaths":0},"2/23/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":15,"total_recoveries":5,"total_deaths":0},"2/24/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":15,"total_recoveries":5,"total_deaths":0},"2/25/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":15,"total_recoveries":6,"total_deaths":0},"2/26/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":15,"total_recoveries":6,"total_deaths":0},"2/27/2020":{"new_daily_cases":1,"new_daily_deaths":0,"total_cases":16,"total_recoveries":6,"total_deaths":0},"2/28/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":16,"total_recoveries":7,"total_deaths":0},"2/29/2020":{"new_daily_cases":8,"new_daily_deaths":1,"total_cases":24,"total_recoveries":7,"total_deaths":1},"3/1/2020":{"new_daily_cases":6,"new_daily_deaths":0,"total_cases":30,"total_recoveries":7,"total_deaths":1},"3/2/2020":{"new_daily_cases":23,"new_daily_deaths":5,"total_cases":53,"total_recoveries":7,"total_deaths":6},"3/3/2020":{"new_daily_cases":20,"new_daily_deaths":1,"total_cases":73,"total_recoveries":7,"total_deaths":7},"3/4/2020":{"new_daily_cases":31,"new_daily_deaths":4,"total_cases":104,"total_recoveries":7,"total_deaths":11},"3/5/2020":{"new_daily_cases":68,"new_daily_deaths":1,"total_cases":172,"total_recoveries":7,"total_deaths":12},"3/6/2020":{"new_daily_cases":45,"new_daily_deaths":2,"total_cases":217,"total_recoveries":7,"total_deaths":14},"3/7/2020":{"new_daily_cases":140,"new_daily_deaths":3,"total_cases":357,"total_recoveries":7,"total_deaths":17},"3/8/2020":{"new_daily_cases":116,"new_daily_deaths":4,"total_cases":473,"total_recoveries":7,"total_deaths":21},"3/9/2020":{"new_daily_cases":65,"new_daily_deaths":1,"total_cases":538,"total_recoveries":7,"total_deaths":22},"3/10/2020":{"new_daily_cases":375,"new_daily_deaths":6,"total_cases":913,"total_recoveries":8,"total_deaths":28},"3/11/2020":{"new_daily_cases":322,"new_daily_deaths":8,"total_cases":1235,"total_recoveries":8,"total_deaths":36},"3/12/2020":{"new_daily_cases":382,"new_daily_deaths":4,"total_cases":1617,"total_recoveries":12,"total_deaths":40},"3/13/2020":{"new_daily_cases":516,"new_daily_deaths":7,"total_cases":2133,"total_recoveries":12,"total_deaths":47},"3/14/2020":{"new_daily_cases":0,"new_daily_deaths":0,"total_cases":2133,"total_recoveries":12,"total_deaths":47},"stat":"ok"}]}
+</pre>
+   <table class="table table-striped table-bordered" id="indexpage">
+    <thead>
+     <tr>
+      <th>
+       <i class="fas fa-sort">
+       </i>
+       Counry Title
+      </th>
+      <th>
+       <i class="fas fa-sort">
+       </i>
+       Country Statistics Code
+      </th>
+      <th>
+       <i class="fas fa-sort">
+       </i>
+       Country Timeline Code
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td>
+       <img alt="AF" src="/images/flags/af.png"/>
+       Afghanistan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AF" target="_blank">
+        AF Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AF" target="_blank">
+        AF Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="AL" src="/images/flags/al.png"/>
+       Albania
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AL" target="_blank">
+        AL Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AL" target="_blank">
+        AL Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="DZ" src="/images/flags/dz.png"/>
+       Algeria
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=DZ" target="_blank">
+        DZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=DZ" target="_blank">
+        DZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="AO" src="/images/flags/ao.png"/>
+       Angola
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AO" target="_blank">
+        AO Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AO" target="_blank">
+        AO Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="AR" src="/images/flags/ar.png"/>
+       Argentina
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AR" target="_blank">
+        AR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AR" target="_blank">
+        AR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="AM" src="/images/flags/am.png"/>
+       Armenia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AM" target="_blank">
+        AM Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AM" target="_blank">
+        AM Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="AU" src="/images/flags/au.png"/>
+       Australia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AU" target="_blank">
+        AU Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AU" target="_blank">
+        AU Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="AT" src="/images/flags/at.png"/>
+       Austria
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AT" target="_blank">
+        AT Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AT" target="_blank">
+        AT Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="AZ" src="/images/flags/az.png"/>
+       Azerbaijan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AZ" target="_blank">
+        AZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AZ" target="_blank">
+        AZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BS" src="/images/flags/bs.png"/>
+       Bahamas
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BS" target="_blank">
+        BS Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BS" target="_blank">
+        BS Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BD" src="/images/flags/bd.png"/>
+       Bangladesh
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BD" target="_blank">
+        BD Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BD" target="_blank">
+        BD Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BY" src="/images/flags/by.png"/>
+       Belarus
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BY" target="_blank">
+        BY Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BY" target="_blank">
+        BY Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BE" src="/images/flags/be.png"/>
+       Belgium
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BE" target="_blank">
+        BE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BE" target="_blank">
+        BE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BZ" src="/images/flags/bz.png"/>
+       Belize
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BZ" target="_blank">
+        BZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BZ" target="_blank">
+        BZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BJ" src="/images/flags/bj.png"/>
+       Benin
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BJ" target="_blank">
+        BJ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BJ" target="_blank">
+        BJ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BT" src="/images/flags/bt.png"/>
+       Bhutan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BT" target="_blank">
+        BT Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BT" target="_blank">
+        BT Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BO" src="/images/flags/bo.png"/>
+       Bolivia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BO" target="_blank">
+        BO Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BO" target="_blank">
+        BO Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BA" src="/images/flags/ba.png"/>
+       Bosnia and Herzegovina
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BA" target="_blank">
+        BA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BA" target="_blank">
+        BA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BW" src="/images/flags/bw.png"/>
+       Botswana
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BW" target="_blank">
+        BW Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BW" target="_blank">
+        BW Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BR" src="/images/flags/br.png"/>
+       Brazil
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BR" target="_blank">
+        BR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BR" target="_blank">
+        BR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BN" src="/images/flags/bn.png"/>
+       Brunei Darussalam
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BN" target="_blank">
+        BN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BN" target="_blank">
+        BN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BG" src="/images/flags/bg.png"/>
+       Bulgaria
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BG" target="_blank">
+        BG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BG" target="_blank">
+        BG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BF" src="/images/flags/bf.png"/>
+       Burkina Faso
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BF" target="_blank">
+        BF Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BF" target="_blank">
+        BF Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="BI" src="/images/flags/bi.png"/>
+       Burundi
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=BI" target="_blank">
+        BI Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=BI" target="_blank">
+        BI Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="KH" src="/images/flags/kh.png"/>
+       Cambodia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=KH" target="_blank">
+        KH Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=KH" target="_blank">
+        KH Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CM" src="/images/flags/cm.png"/>
+       Cameroon
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CM" target="_blank">
+        CM Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CM" target="_blank">
+        CM Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CA" src="/images/flags/ca.png"/>
+       Canada
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CA" target="_blank">
+        CA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CA" target="_blank">
+        CA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CI" src="/images/flags/ci.png"/>
+       Ivory Coast
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CI" target="_blank">
+        CI Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CI" target="_blank">
+        CI Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CF" src="/images/flags/cf.png"/>
+       Central African Republic
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CF" target="_blank">
+        CF Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CF" target="_blank">
+        CF Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TD" src="/images/flags/td.png"/>
+       Chad
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TD" target="_blank">
+        TD Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TD" target="_blank">
+        TD Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CL" src="/images/flags/cl.png"/>
+       Chile
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CL" target="_blank">
+        CL Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CL" target="_blank">
+        CL Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CN" src="/images/flags/cn.png"/>
+       China
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CN" target="_blank">
+        CN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CN" target="_blank">
+        CN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CO" src="/images/flags/co.png"/>
+       Colombia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CO" target="_blank">
+        CO Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CO" target="_blank">
+        CO Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CG" src="/images/flags/cg.png"/>
+       Congo
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CG" target="_blank">
+        CG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CG" target="_blank">
+        CG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CD" src="/images/flags/cd.png"/>
+       Democratic Republic of Congo
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CD" target="_blank">
+        CD Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CD" target="_blank">
+        CD Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CR" src="/images/flags/cr.png"/>
+       Costa Rica
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CR" target="_blank">
+        CR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CR" target="_blank">
+        CR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="HR" src="/images/flags/hr.png"/>
+       Croatia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=HR" target="_blank">
+        HR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=HR" target="_blank">
+        HR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CU" src="/images/flags/cu.png"/>
+       Cuba
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CU" target="_blank">
+        CU Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CU" target="_blank">
+        CU Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CY" src="/images/flags/cy.png"/>
+       Cyprus
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CY" target="_blank">
+        CY Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CY" target="_blank">
+        CY Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CZ" src="/images/flags/cz.png"/>
+       Czechia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CZ" target="_blank">
+        CZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CZ" target="_blank">
+        CZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="DK" src="/images/flags/dk.png"/>
+       Denmark
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=DK" target="_blank">
+        DK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=DK" target="_blank">
+        DK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="DP" src="/images/smallboat.png"/>
+       Diamond Princess
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=DP" target="_blank">
+        DP Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=DP" target="_blank">
+        DP Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="DJ" src="/images/flags/dj.png"/>
+       Djibouti
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=DJ" target="_blank">
+        DJ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=DJ" target="_blank">
+        DJ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="DO" src="/images/flags/do.png"/>
+       Dominican Republic
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=DO" target="_blank">
+        DO Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=DO" target="_blank">
+        DO Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CD" src="/images/flags/cd.png"/>
+       DR Congo
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CD" target="_blank">
+        CD Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CD" target="_blank">
+        CD Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="EC" src="/images/flags/ec.png"/>
+       Ecuador
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=EC" target="_blank">
+        EC Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=EC" target="_blank">
+        EC Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="EG" src="/images/flags/eg.png"/>
+       Egypt
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=EG" target="_blank">
+        EG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=EG" target="_blank">
+        EG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SV" src="/images/flags/sv.png"/>
+       El Salvador
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SV" target="_blank">
+        SV Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SV" target="_blank">
+        SV Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GQ" src="/images/flags/gq.png"/>
+       Equatorial Guinea
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GQ" target="_blank">
+        GQ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GQ" target="_blank">
+        GQ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ER" src="/images/flags/er.png"/>
+       Eritrea
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ER" target="_blank">
+        ER Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ER" target="_blank">
+        ER Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="EE" src="/images/flags/ee.png"/>
+       Estonia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=EE" target="_blank">
+        EE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=EE" target="_blank">
+        EE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ET" src="/images/flags/et.png"/>
+       Ethiopia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ET" target="_blank">
+        ET Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ET" target="_blank">
+        ET Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="FK" src="/images/flags/fk.png"/>
+       Falkland Islands
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=FK" target="_blank">
+        FK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=FK" target="_blank">
+        FK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="FJ" src="/images/flags/fj.png"/>
+       Fiji
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=FJ" target="_blank">
+        FJ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=FJ" target="_blank">
+        FJ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="FI" src="/images/flags/fi.png"/>
+       Finland
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=FI" target="_blank">
+        FI Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=FI" target="_blank">
+        FI Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="FR" src="/images/flags/fr.png"/>
+       France
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=FR" target="_blank">
+        FR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=FR" target="_blank">
+        FR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GF" src="/images/flags/gf.png"/>
+       French Guiana
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GF" target="_blank">
+        GF Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GF" target="_blank">
+        GF Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TF" src="/images/flags/tf.png"/>
+       French Southern Territories
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TF" target="_blank">
+        TF Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TF" target="_blank">
+        TF Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GA" src="/images/flags/ga.png"/>
+       Gabon
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GA" target="_blank">
+        GA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GA" target="_blank">
+        GA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GM" src="/images/flags/gm.png"/>
+       Gambia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GM" target="_blank">
+        GM Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GM" target="_blank">
+        GM Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GE" src="/images/flags/ge.png"/>
+       Georgia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GE" target="_blank">
+        GE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GE" target="_blank">
+        GE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="DE" src="/images/flags/de.png"/>
+       Germany
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=DE" target="_blank">
+        DE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=DE" target="_blank">
+        DE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GH" src="/images/flags/gh.png"/>
+       Ghana
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GH" target="_blank">
+        GH Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GH" target="_blank">
+        GH Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GR" src="/images/flags/gr.png"/>
+       Greece
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GR" target="_blank">
+        GR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GR" target="_blank">
+        GR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GL" src="/images/flags/gl.png"/>
+       Greenland
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GL" target="_blank">
+        GL Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GL" target="_blank">
+        GL Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GT" src="/images/flags/gt.png"/>
+       Guatemala
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GT" target="_blank">
+        GT Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GT" target="_blank">
+        GT Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GN" src="/images/flags/gn.png"/>
+       Guinea
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GN" target="_blank">
+        GN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GN" target="_blank">
+        GN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GW" src="/images/flags/gw.png"/>
+       Guinea-Bissau
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GW" target="_blank">
+        GW Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GW" target="_blank">
+        GW Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GY" src="/images/flags/gy.png"/>
+       Guyana
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GY" target="_blank">
+        GY Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GY" target="_blank">
+        GY Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="HT" src="/images/flags/ht.png"/>
+       Haiti
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=HT" target="_blank">
+        HT Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=HT" target="_blank">
+        HT Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="HN" src="/images/flags/hn.png"/>
+       Honduras
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=HN" target="_blank">
+        HN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=HN" target="_blank">
+        HN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="HK" src="/images/flags/hk.png"/>
+       Hong Kong
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=HK" target="_blank">
+        HK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=HK" target="_blank">
+        HK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="HU" src="/images/flags/hu.png"/>
+       Hungary
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=HU" target="_blank">
+        HU Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=HU" target="_blank">
+        HU Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="IS" src="/images/flags/is.png"/>
+       Iceland
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=IS" target="_blank">
+        IS Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=IS" target="_blank">
+        IS Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="IN" src="/images/flags/in.png"/>
+       India
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=IN" target="_blank">
+        IN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=IN" target="_blank">
+        IN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ID" src="/images/flags/id.png"/>
+       Indonesia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ID" target="_blank">
+        ID Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ID" target="_blank">
+        ID Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="IR" src="/images/flags/ir.png"/>
+       Iran
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=IR" target="_blank">
+        IR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=IR" target="_blank">
+        IR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="IQ" src="/images/flags/iq.png"/>
+       Iraq
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=IQ" target="_blank">
+        IQ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=IQ" target="_blank">
+        IQ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="IE" src="/images/flags/ie.png"/>
+       Ireland
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=IE" target="_blank">
+        IE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=IE" target="_blank">
+        IE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="IL" src="/images/flags/il.png"/>
+       Israel
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=IL" target="_blank">
+        IL Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=IL" target="_blank">
+        IL Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="IT" src="/images/flags/it.png"/>
+       Italy
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=IT" target="_blank">
+        IT Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=IT" target="_blank">
+        IT Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="JM" src="/images/flags/jm.png"/>
+       Jamaica
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=JM" target="_blank">
+        JM Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=JM" target="_blank">
+        JM Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="JP" src="/images/flags/jp.png"/>
+       Japan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=JP" target="_blank">
+        JP Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=JP" target="_blank">
+        JP Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="JO" src="/images/flags/jo.png"/>
+       Jordan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=JO" target="_blank">
+        JO Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=JO" target="_blank">
+        JO Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="KZ" src="/images/flags/kz.png"/>
+       Kazakhstan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=KZ" target="_blank">
+        KZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=KZ" target="_blank">
+        KZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="KE" src="/images/flags/ke.png"/>
+       Kenya
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=KE" target="_blank">
+        KE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=KE" target="_blank">
+        KE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="KP" src="/images/flags/kp.png"/>
+       Korea
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=KP" target="_blank">
+        KP Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=KP" target="_blank">
+        KP Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="XK" src="/images/flags/xk.png"/>
+       Kosovo
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=XK" target="_blank">
+        XK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=XK" target="_blank">
+        XK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="KW" src="/images/flags/kw.png"/>
+       Kuwait
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=KW" target="_blank">
+        KW Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=KW" target="_blank">
+        KW Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="KG" src="/images/flags/kg.png"/>
+       Kyrgyzstan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=KG" target="_blank">
+        KG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=KG" target="_blank">
+        KG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LA" src="/images/flags/la.png"/>
+       Lao
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LA" target="_blank">
+        LA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LA" target="_blank">
+        LA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LV" src="/images/flags/lv.png"/>
+       Latvia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LV" target="_blank">
+        LV Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LV" target="_blank">
+        LV Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LB" src="/images/flags/lb.png"/>
+       Lebanon
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LB" target="_blank">
+        LB Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LB" target="_blank">
+        LB Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LS" src="/images/flags/ls.png"/>
+       Lesotho
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LS" target="_blank">
+        LS Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LS" target="_blank">
+        LS Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LR" src="/images/flags/lr.png"/>
+       Liberia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LR" target="_blank">
+        LR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LR" target="_blank">
+        LR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LY" src="/images/flags/ly.png"/>
+       Libya
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LY" target="_blank">
+        LY Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LY" target="_blank">
+        LY Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LT" src="/images/flags/lt.png"/>
+       Lithuania
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LT" target="_blank">
+        LT Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LT" target="_blank">
+        LT Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LU" src="/images/flags/lu.png"/>
+       Luxembourg
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LU" target="_blank">
+        LU Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LU" target="_blank">
+        LU Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MK" src="/images/flags/mk.png"/>
+       Macedonia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MK" target="_blank">
+        MK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MK" target="_blank">
+        MK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MG" src="/images/flags/mg.png"/>
+       Madagascar
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MG" target="_blank">
+        MG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MG" target="_blank">
+        MG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MW" src="/images/flags/mw.png"/>
+       Malawi
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MW" target="_blank">
+        MW Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MW" target="_blank">
+        MW Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MY" src="/images/flags/my.png"/>
+       Malaysia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MY" target="_blank">
+        MY Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MY" target="_blank">
+        MY Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ML" src="/images/flags/ml.png"/>
+       Mali
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ML" target="_blank">
+        ML Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ML" target="_blank">
+        ML Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MR" src="/images/flags/mr.png"/>
+       Mauritania
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MR" target="_blank">
+        MR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MR" target="_blank">
+        MR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MX" src="/images/flags/mx.png"/>
+       Mexico
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MX" target="_blank">
+        MX Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MX" target="_blank">
+        MX Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MD" src="/images/flags/md.png"/>
+       Moldova
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MD" target="_blank">
+        MD Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MD" target="_blank">
+        MD Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MN" src="/images/flags/mn.png"/>
+       Mongolia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MN" target="_blank">
+        MN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MN" target="_blank">
+        MN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ME" src="/images/flags/me.png"/>
+       Montenegro
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ME" target="_blank">
+        ME Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ME" target="_blank">
+        ME Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MA" src="/images/flags/ma.png"/>
+       Morocco
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MA" target="_blank">
+        MA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MA" target="_blank">
+        MA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MZ" src="/images/flags/mz.png"/>
+       Mozambique
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MZ" target="_blank">
+        MZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MZ" target="_blank">
+        MZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="MM" src="/images/flags/mm.png"/>
+       Myanmar
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=MM" target="_blank">
+        MM Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=MM" target="_blank">
+        MM Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NA" src="/images/flags/na.png"/>
+       Namibia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NA" target="_blank">
+        NA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NA" target="_blank">
+        NA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NP" src="/images/flags/np.png"/>
+       Nepal
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NP" target="_blank">
+        NP Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NP" target="_blank">
+        NP Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NL" src="/images/flags/nl.png"/>
+       Netherlands
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NL" target="_blank">
+        NL Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NL" target="_blank">
+        NL Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NC" src="/images/flags/nc.png"/>
+       New Caledonia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NC" target="_blank">
+        NC Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NC" target="_blank">
+        NC Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NZ" src="/images/flags/nz.png"/>
+       New Zealand
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NZ" target="_blank">
+        NZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NZ" target="_blank">
+        NZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NI" src="/images/flags/ni.png"/>
+       Nicaragua
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NI" target="_blank">
+        NI Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NI" target="_blank">
+        NI Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NE" src="/images/flags/ne.png"/>
+       Niger
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NE" target="_blank">
+        NE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NE" target="_blank">
+        NE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NG" src="/images/flags/ng.png"/>
+       Nigeria
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NG" target="_blank">
+        NG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NG" target="_blank">
+        NG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="KP" src="/images/flags/kp.png"/>
+       North Korea
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=KP" target="_blank">
+        KP Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=KP" target="_blank">
+        KP Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="NO" src="/images/flags/no.png"/>
+       Norway
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=NO" target="_blank">
+        NO Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=NO" target="_blank">
+        NO Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="OM" src="/images/flags/om.png"/>
+       Oman
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=OM" target="_blank">
+        OM Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=OM" target="_blank">
+        OM Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PK" src="/images/flags/pk.png"/>
+       Pakistan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PK" target="_blank">
+        PK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PK" target="_blank">
+        PK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PS" src="/images/flags/ps.png"/>
+       Palestine
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PS" target="_blank">
+        PS Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PS" target="_blank">
+        PS Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PA" src="/images/flags/pa.png"/>
+       Panama
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PA" target="_blank">
+        PA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PA" target="_blank">
+        PA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PG" src="/images/flags/pg.png"/>
+       Papua New Guinea
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PG" target="_blank">
+        PG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PG" target="_blank">
+        PG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PY" src="/images/flags/py.png"/>
+       Paraguay
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PY" target="_blank">
+        PY Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PY" target="_blank">
+        PY Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PE" src="/images/flags/pe.png"/>
+       Peru
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PE" target="_blank">
+        PE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PE" target="_blank">
+        PE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PH" src="/images/flags/ph.png"/>
+       Philippines
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PH" target="_blank">
+        PH Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PH" target="_blank">
+        PH Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PL" src="/images/flags/pl.png"/>
+       Poland
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PL" target="_blank">
+        PL Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PL" target="_blank">
+        PL Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PT" src="/images/flags/pt.png"/>
+       Portugal
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PT" target="_blank">
+        PT Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PT" target="_blank">
+        PT Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="PR" src="/images/flags/pr.png"/>
+       Puerto Rico
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=PR" target="_blank">
+        PR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=PR" target="_blank">
+        PR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="QA" src="/images/flags/qa.png"/>
+       Qatar
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=QA" target="_blank">
+        QA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=QA" target="_blank">
+        QA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="XK" src="/images/flags/xk.png"/>
+       Republic of Kosovo
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=XK" target="_blank">
+        XK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=XK" target="_blank">
+        XK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="RO" src="/images/flags/ro.png"/>
+       Romania
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=RO" target="_blank">
+        RO Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=RO" target="_blank">
+        RO Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="RU" src="/images/flags/ru.png"/>
+       Russia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=RU" target="_blank">
+        RU Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=RU" target="_blank">
+        RU Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="RW" src="/images/flags/rw.png"/>
+       Rwanda
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=RW" target="_blank">
+        RW Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=RW" target="_blank">
+        RW Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SA" src="/images/flags/sa.png"/>
+       Saudi Arabia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SA" target="_blank">
+        SA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SA" target="_blank">
+        SA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SN" src="/images/flags/sn.png"/>
+       Senegal
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SN" target="_blank">
+        SN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SN" target="_blank">
+        SN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="RS" src="/images/flags/rs.png"/>
+       Serbia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=RS" target="_blank">
+        RS Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=RS" target="_blank">
+        RS Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SL" src="/images/flags/sl.png"/>
+       Sierra Leone
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SL" target="_blank">
+        SL Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SL" target="_blank">
+        SL Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SG" src="/images/flags/sg.png"/>
+       Singapore
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SG" target="_blank">
+        SG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SG" target="_blank">
+        SG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SK" src="/images/flags/sk.png"/>
+       Slovakia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SK" target="_blank">
+        SK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SK" target="_blank">
+        SK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SI" src="/images/flags/si.png"/>
+       Slovenia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SI" target="_blank">
+        SI Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SI" target="_blank">
+        SI Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SB" src="/images/flags/sb.png"/>
+       Solomon Islands
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SB" target="_blank">
+        SB Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SB" target="_blank">
+        SB Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SO" src="/images/flags/so.png"/>
+       Somalia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SO" target="_blank">
+        SO Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SO" target="_blank">
+        SO Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ZA" src="/images/flags/za.png"/>
+       South Africa
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ZA" target="_blank">
+        ZA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ZA" target="_blank">
+        ZA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="KR" src="/images/flags/kr.png"/>
+       South Korea
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=KR" target="_blank">
+        KR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=KR" target="_blank">
+        KR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SS" src="/images/flags/ss.png"/>
+       South Sudan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SS" target="_blank">
+        SS Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SS" target="_blank">
+        SS Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ES" src="/images/flags/es.png"/>
+       Spain
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ES" target="_blank">
+        ES Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ES" target="_blank">
+        ES Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="LK" src="/images/flags/lk.png"/>
+       Sri Lanka
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=LK" target="_blank">
+        LK Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=LK" target="_blank">
+        LK Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SD" src="/images/flags/sd.png"/>
+       Sudan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SD" target="_blank">
+        SD Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SD" target="_blank">
+        SD Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SR" src="/images/flags/sr.png"/>
+       Suriname
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SR" target="_blank">
+        SR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SR" target="_blank">
+        SR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SJ" src="/images/flags/sj.png"/>
+       Svalbard and Jan Mayen
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SJ" target="_blank">
+        SJ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SJ" target="_blank">
+        SJ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SZ" src="/images/flags/sz.png"/>
+       Swaziland
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SZ" target="_blank">
+        SZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SZ" target="_blank">
+        SZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SE" src="/images/flags/se.png"/>
+       Sweden
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SE" target="_blank">
+        SE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SE" target="_blank">
+        SE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="CH" src="/images/flags/ch.png"/>
+       Switzerland
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=CH" target="_blank">
+        CH Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=CH" target="_blank">
+        CH Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="SY" src="/images/flags/sy.png"/>
+       Syrian Arab Republic
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=SY" target="_blank">
+        SY Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=SY" target="_blank">
+        SY Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TW" src="/images/flags/tw.png"/>
+       Taiwan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TW" target="_blank">
+        TW Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TW" target="_blank">
+        TW Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TJ" src="/images/flags/tj.png"/>
+       Tajikistan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TJ" target="_blank">
+        TJ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TJ" target="_blank">
+        TJ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TZ" src="/images/flags/tz.png"/>
+       Tanzania
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TZ" target="_blank">
+        TZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TZ" target="_blank">
+        TZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TH" src="/images/flags/th.png"/>
+       Thailand
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TH" target="_blank">
+        TH Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TH" target="_blank">
+        TH Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TL" src="/images/flags/tl.png"/>
+       Timor-Leste
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TL" target="_blank">
+        TL Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TL" target="_blank">
+        TL Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TG" src="/images/flags/tg.png"/>
+       Togo
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TG" target="_blank">
+        TG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TG" target="_blank">
+        TG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TT" src="/images/flags/tt.png"/>
+       Trinidad and Tobago
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TT" target="_blank">
+        TT Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TT" target="_blank">
+        TT Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TN" src="/images/flags/tn.png"/>
+       Tunisia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TN" target="_blank">
+        TN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TN" target="_blank">
+        TN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TR" src="/images/flags/tr.png"/>
+       Turkey
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TR" target="_blank">
+        TR Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TR" target="_blank">
+        TR Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="TM" src="/images/flags/tm.png"/>
+       Turkmenistan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=TM" target="_blank">
+        TM Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=TM" target="_blank">
+        TM Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="AE" src="/images/flags/ae.png"/>
+       UAE
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=AE" target="_blank">
+        AE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=AE" target="_blank">
+        AE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="UG" src="/images/flags/ug.png"/>
+       Uganda
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=UG" target="_blank">
+        UG Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=UG" target="_blank">
+        UG Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="GB" src="/images/flags/gb.png"/>
+       United Kingdom
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=GB" target="_blank">
+        GB Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=GB" target="_blank">
+        GB Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="UA" src="/images/flags/ua.png"/>
+       Ukraine
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=UA" target="_blank">
+        UA Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=UA" target="_blank">
+        UA Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="US" src="/images/flags/us.png"/>
+       USA
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=US" target="_blank">
+        US Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=US" target="_blank">
+        US Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="UY" src="/images/flags/uy.png"/>
+       Uruguay
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=UY" target="_blank">
+        UY Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=UY" target="_blank">
+        UY Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="UZ" src="/images/flags/uz.png"/>
+       Uzbekistan
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=UZ" target="_blank">
+        UZ Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=UZ" target="_blank">
+        UZ Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="VU" src="/images/flags/vu.png"/>
+       Vanuatu
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=VU" target="_blank">
+        VU Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=VU" target="_blank">
+        VU Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="VE" src="/images/flags/ve.png"/>
+       Venezuela
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=VE" target="_blank">
+        VE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=VE" target="_blank">
+        VE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="VN" src="/images/flags/vn.png"/>
+       Vietnam
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=VN" target="_blank">
+        VN Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=VN" target="_blank">
+        VN Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="EH" src="/images/flags/eh.png"/>
+       Western Sahara
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=EH" target="_blank">
+        EH Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=EH" target="_blank">
+        EH Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="YE" src="/images/flags/ye.png"/>
+       Yemen
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=YE" target="_blank">
+        YE Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=YE" target="_blank">
+        YE Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ZM" src="/images/flags/zm.png"/>
+       Zambia
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ZM" target="_blank">
+        ZM Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ZM" target="_blank">
+        ZM Timeline
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <img alt="ZW" src="/images/flags/zw.png"/>
+       Zimbabwe
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTotal=ZW" target="_blank">
+        ZW Stats
+       </a>
+      </td>
+      <td>
+       <a href="https://api.thevirustracker.com/free-api?countryTimeline=ZW" target="_blank">
+        ZW Timeline
+       </a>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <script>
+    $(document).ready(function(){
+  $(function(){
+  $("#indexpage").tablesorter();
+  });
+  });
+   </script>
+   <hr/>
+   <h2>
+    Contact Us
+   </h2>
+   <p>
+    If you have any questions or issues about this API, please contact us:
+   </p>
+   <ul>
+    <li>
+     Tweet us over at
+     <a href="https://twitter.com/thevirustracker" target="_blank">
+      <i class="fab fa-twitter">
+      </i>
+      TheVirusTracker
+     </a>
+    </li>
+   </ul>
+   <style>
+    pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}input[type=text],pre{box-sizing:border-box;border:1px solid #ccc;padding:10px;width:100%;color:#666;font-family:Courier,Open Sans,sans-serif;font-weight:100;font-size:14px;overflow:scroll}input[type=text]:focus,pre:focus{border:1px solid #aaa;outline:none!important}input[type=text] span,pre span{color:#83ba43}
+   </style>
+   ﻿
+   <h5>
+    <a href="https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_outbreak_by_country_and_territory" rel="nofollow" target="_blank">
+     Wiki
+    </a>
+    - by
+    <a href="https://twitter.com/thevirustracker" target="_blank">
+     <i class="fab fa-twitter">
+     </i>
+     TheVirusTracker
+    </a>
+    -
+    <a href="https://www.facebook.com/plugins/group/join/popup/?group_id=2762831023798987&amp;source=email_campaign_plugin" target="_blank">
+     <i class="fab fa-facebook">
+     </i>
+     TheVirusTracker Facebook
+    </a>
+    -
+    <a href="https://thevirustracker.com/api">
+     Build a Tracker
+    </a>
+    -
+    <a href="https://thevirustracker.com/privacy-policy">
+     Privacy Policy
+    </a>
+    -
+    <a href="https://thevirustracker.com/terms-of-service">
+     Terms of Service
+    </a>
+   </h5>
+  </div>
+  <script>
+   $(function(){$("img[data-favicon-src]").each(function(){var t=$(this);t.attr("data-default-src",t.attr("src")),t.attr("src",t.attr("data-favicon-src")).load(function(){var t=$(this);t.removeAttr("data-default-src"),t.removeAttr("data-favicon-src")})}),setTimeout(function(){$("img[data-default-src]").each(function(){console.info("Canceling google favicon loading...");var t=$(this);t.attr("src",t.attr("data-default-src"))})},1e3)});
+  </script>
+  <script>
+   window.addEventListener('load', function () {
+    $("#regions_divloading").hide();
+    $("#regions_divloadingno").show();
+        })
+  </script>
+  <a class="btn btn-primary btn-lg back-to-top" data-placement="left" data-toggle="tooltip" href="#" id="back-to-top" role="button" title="Click to return on the top page">
+   top
+  </a>
+  <style>
+   .back-to-top {cursor: pointer;position: fixed;bottom: 20px;right: 20px;display:none;}
+  </style>
+  <script>
+   $(document).ready(function(){$(window).scroll(function () {if ($(this).scrollTop() > 50) {$('#back-to-top').fadeIn();} else {$('#back-to-top').fadeOut();}});$('#back-to-top').click(function () {$('#back-to-top').tooltip('hide');$('body,html').animate({scrollTop: 0}, 800);return false;});$('#back-to-top').tooltip('show');});
+  </script>
+  <script src="/js/jquery.tablesorter.min.js">
+  </script>
+  <!-- Default Statcounter code for Thevirustracker.com
+https://thevirustracker.com/ -->
+  <script type="text/javascript">
+   var sc_project=12206630;
+var sc_invisible=0;
+var sc_security="ce562b37";
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript>
+   <div class="statcounter">
+    <a href="https://statcounter.com/" target="_blank" title="Web Analytics">
+     <img alt="Web Analytics" class="statcounter" src="https://c.statcounter.com/12206630/0/ce562b37/0/"/>
+    </a>
+   </div>
+  </noscript>
+  <!-- End of Statcounter Code -->
+  <div style="display:none;">
+   <script id="_wau9mc">
+    var _wau = _wau || []; _wau.push(["small", "mpapejcg54", "9mc"]);
+   </script>
+   <script async="" src="//waust.at/s.js">
+   </script>
+  </div>
+ </body>
+</html>
