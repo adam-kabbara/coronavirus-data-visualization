@@ -45,135 +45,87 @@ def get_response(command):
         else:
             if command.lower() == 'world wide today' or command == '1':
                 url = 'https://api.thevirustracker.com/free-api?global=stats'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'all countries today[total recovered]' or command == '2':
                 url = 'https://api.thevirustracker.com/free-api?countryTotals=ALL'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'specific country today' or command == '3':
                 url = get_country_specific_url('https://api.thevirustracker.com/free-api?countryTotal=')
                 if url is not None:
-                    try:
-                        response = requests.get(url)
-                    except requests.exceptions.ConnectionError:
-                        print('error getting the data. please connect to wifi and try again')
-                    else:
-                        raw_data = response.json()
+                    response = requests.get(url)
+                    raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'world full time line' or command == '4':
                 url = 'https://thevirustracker.com/timeline/map-data.json'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'specific country timeline' or command == '5':
                 url = get_country_specific_url('https://api.thevirustracker.com/free-api?countryTimeline=')
                 if url is not None:
-                    try:
-                        response = requests.get(url)
-                    except requests.exceptions.ConnectionError:
-                        print('error getting the data. please connect to wifi and try again')
-                    else:
-                        raw_data = response.json()
+                    response = requests.get(url)
+                    raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'all countries timeline[cases]' or command == '6':
                 url = 'https://thevirustracker.com/timeline/map-data.json'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'all countries today[total deaths]' or command == '7':
                 url = 'https://api.thevirustracker.com/free-api?countryTotals=ALL'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'all countries today[total cases]' or command == '8':
                 url = 'https://api.thevirustracker.com/free-api?countryTotals=ALL'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'all countries today[new deaths]' or command == '9':
                 url = 'https://api.thevirustracker.com/free-api?countryTotals=ALL'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'all countries today[new cases]' or command == '10':
                 url = 'https://api.thevirustracker.com/free-api?countryTotals=ALL'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'all countries timeline[deaths]' or command == '11':
                 url = 'https://thevirustracker.com/timeline/map-data.json'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
     # ==================================================================================== #
 
             elif command.lower() == 'all countries timeline[recovered]' or command == '12':
                 url = 'https://thevirustracker.com/timeline/map-data.json'
-                try:
-                    response = requests.get(url)
-                except requests.exceptions.ConnectionError:
-                    print('error getting the data. please connect to wifi and try again')
-                else:
-                    raw_data = response.json()
+                response = requests.get(url)
+                raw_data = response.json()
 
         return raw_data
 
@@ -181,7 +133,7 @@ def get_response(command):
 def get_country_specific_url(partial_url):
 
     # get country codes
-    country_codes = country_code_getter.country_codes
+    country_codes = country_code_getter.get_country_codes()
     countries = []
     for item in country_codes.keys():
         countries.append(item)
@@ -212,37 +164,30 @@ def get_country_specific_url(partial_url):
 
 def return_data(raw_data, command):
 
-    try:
-        requests.get('http://google.com')
-    except requests.exceptions.ConnectionError:
-        print('error getting the data. please connect to wifi and try again')
-    else:
+    # get country codes
+    country_codes = country_code_getter.get_country_codes()
+    countries = []
+    for item in country_codes.keys():
+        countries.append(item)
 
-        # get country codes
-        country_codes = country_code_getter.get_country_codes()
-        countries = []
-        for item in country_codes.keys():
-            countries.append(item)
+    if raw_data is not None:
+        if command.lower() == 'world wide today' or command == '1':
+            # transform into a dict
+            json_result = raw_data['results']
+            json_result = json_result[0]
 
-        if raw_data is not None:
-            if command.lower() == 'world wide today' or command == '1':
-                # transform into a dict
-                json_result = raw_data['results']
-                json_result = json_result[0]
+            # remove unwanted data
+            json_result.pop('source')
 
-                # remove unwanted data
-                json_result.pop('source')
+            x, y = list(json_result.keys()), list(json_result.values())
+            return x, y
 
-                x, y = list(json_result.keys()), list(json_result.values())
-                return x, y
-
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'all countries today[total recovered]' or command == '2':
             # transform into a dict
             json_result = raw_data['countryitems']
             json_result = json_result[0]
-            print(raw_data)
 
             x = []
             y = []
@@ -254,7 +199,7 @@ def return_data(raw_data, command):
                         y.append(main_v[k])
             return x, y
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'specific country today' or command == '3':
             # transform into a dict
@@ -267,7 +212,7 @@ def return_data(raw_data, command):
             x, y = list(json_result.keys()), list(json_result.values())
             return x, y
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'world full time line' or command == '4':
             # transform into a list
@@ -341,7 +286,7 @@ def return_data(raw_data, command):
                             y_recovered_list.append(int(v))
 
             return x_date_list, y_recovered_list, y_deaths_list, y_cases_list
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'specific country timeline' or command == '5':
             # transform into a dict
@@ -376,7 +321,7 @@ def return_data(raw_data, command):
 
             return country_name, x_date, new_daily_cases_y, new_daily_deaths_y, total_cases_y, total_recoveries_y, total_deaths_y
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'all countries timeline[cases]' or command == '6':
             # transform into a list
@@ -412,7 +357,7 @@ def return_data(raw_data, command):
             # if we don't put None it will only return the keys
             return all_countries_timeline_cases_dict, None
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'all countries today[total deaths]' or command == '7':
             # transform into a dict
@@ -429,7 +374,7 @@ def return_data(raw_data, command):
                         y.append(main_v[k])
             return x, y
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'all countries today[total cases]' or command == '8':
             # transform into a dict
@@ -446,7 +391,7 @@ def return_data(raw_data, command):
                         y.append(main_v[k])
             return x, y
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'all countries today[new deaths]' or command == '9':
             # transform into a dict
@@ -463,7 +408,7 @@ def return_data(raw_data, command):
                         y.append(main_v[k])
             return x, y
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'all countries today[new cases]' or command == '10':
             # transform into a dict
@@ -480,7 +425,7 @@ def return_data(raw_data, command):
                         y.append(main_v[k])
             return x, y
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'all countries timeline[deaths]' or command == '11':
             # transform into a list
@@ -516,7 +461,7 @@ def return_data(raw_data, command):
             # if we don't put None it will only return the keys
             return all_countries_timeline_deaths_dict, None
 
-# ==================================================================================== #
+    # ==================================================================================== #
 
         elif command.lower() == 'all countries timeline[recovered]' or command == '12':
             # transform into a list
@@ -553,7 +498,9 @@ def return_data(raw_data, command):
             return all_countries_timeline_recovered_dict, None
 
 
-command = get_command()
-r_data = get_response(command)
-data = return_data(r_data, command)
+com = get_command()
+r_data = get_response(com)
+data = return_data(r_data, com)
+for i in data:
+    print(i)
 
