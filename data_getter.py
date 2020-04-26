@@ -2,6 +2,7 @@ import requests
 import country_code_getter
 from collections import defaultdict
 import datetime
+import copy
 
 
 def get_data(url):
@@ -33,6 +34,8 @@ def get_command():
 def get_response(command):
 
     raw_data = None
+    country = None
+
     commands = ['world wide today', 'all countries today[total recovered]', 'specific country today', 'world full time line',
                 'specific country timeline', 'all countries timeline[cases]', 'all countries today[total deaths]',
                 'all countries today[total cases]', 'all countries today[new deaths]', 'all countries today[new cases]',
@@ -58,7 +61,7 @@ def get_response(command):
     # ==================================================================================== #
 
             elif command.lower() == 'specific country today' or command == '3':
-                url = get_country_specific_url('https://api.thevirustracker.com/free-api?countryTotal=')
+                url, country = get_country_specific_url('https://api.thevirustracker.com/free-api?countryTotal=')
                 if url is not None:
                     response = requests.get(url)
                     raw_data = response.json()
@@ -73,7 +76,7 @@ def get_response(command):
     # ==================================================================================== #
 
             elif command.lower() == 'specific country timeline' or command == '5':
-                url = get_country_specific_url('https://api.thevirustracker.com/free-api?countryTimeline=')
+                url, country = get_country_specific_url('https://api.thevirustracker.com/free-api?countryTimeline=')
                 if url is not None:
                     response = requests.get(url)
                     raw_data = response.json()
@@ -127,7 +130,7 @@ def get_response(command):
                 response = requests.get(url)
                 raw_data = response.json()
 
-        return raw_data
+        return raw_data, country
 
 
 def get_country_specific_url(partial_url):
@@ -141,34 +144,120 @@ def get_country_specific_url(partial_url):
     country = input('What is the name of the country: ')
     country_accepted = False
 
-    for c in countries:
-        if country.lower() in c:
-            country_accepted = True
-            # if the country is in the data base but spelled in a different way
-            country = c
-
-    if country_accepted:
-        code = country_codes[country.lower()]
-        url = partial_url + code
-        return url
-
     # make sure if someone typed us or america the program would still work
-    elif country.lower() == 'america' or country.lower() == 'us':
+    if country.lower() == 'america' or country.lower() == 'us':
         code = 'US'
         url = partial_url + code
-        return url
+        return url, country.upper()
+
+    elif country.lower() != 'america' or country.lower() != 'us':
+        for c in countries:
+            if country.lower() in c:
+                country_accepted = True
+                # if the country is in the data base but spelled in a different way
+                country = c
+
+        if country_accepted:
+            code = country_codes[country.lower()]
+            url = partial_url + code
+            return url, country.title()
 
     else:
         print('Sorry the country you are looking for is unknown\n')
 
 
-def return_data(raw_data, command):
+def return_data_for_specific_month(dictionary):
+
+    # get available months
+    months_codes = {'1': 'january', '2': 'february', '3': 'march', '4': 'april', '5': 'may', '6': 'june',
+                    '7': 'july', '8': 'august', '9': 'september', '10': 'october', '11': 'november', '12': 'december'}
+    months = []
+    for v in dictionary.values():
+        dates = v[0]
+        for date in dates:
+            date = date.split('/')
+            month = date[0]
+            months.append(month)
+
+    # remove duplicates from list
+    for i in months:
+        num = months.count(i)
+        for _ in range(num-1):
+            months.remove(i)
+
+    # get input
+    print('which month do you want the graph to represent the available months are:\n')
+    for m in months:
+        print(f'{months_codes[m]} ({m})')
+
+    input_month = input('\n')
+
+    # if someone rights january instead of 1
+    if len(input_month) > 2:
+        good_input = False
+        for k, v in months_codes.items():
+            if input_month.lower() == v:
+                input_month = k
+                good_input = True
+                break
+    # if someone writes   1   with space around it
+    elif input_month.strip() in months_codes.keys():
+        good_input = True
+    else:
+        good_input = False
+
+    # check validity of input
+    if not good_input:
+        print('invalid month please try again and enter a valid month')
+        return None
+
+    else:
+        # make a copy of the dict
+        return_dict = {k: v for k, v in dictionary.items()}
+        months_in_dict_values = []
+
+        for k, v in copy.deepcopy(return_dict).items():
+            # we use deep copy in order to copy the list in the dict
+            date_list = v[0]
+
+            # if country doesnt have data for the specific month remove it
+            for d in date_list:
+                if d.split('/')[0] not in months_in_dict_values:
+                    months_in_dict_values.append(d.split('/')[0])
+
+            if input_month not in months_in_dict_values:
+                return_dict.pop(k)
+
+            # remove data out of the range if the input month data
+            else:
+                index_subtracter = 0
+                for i, m in enumerate(date_list):
+                    if m.split('/')[0] != input_month:
+                        return_dict[k][0].pop(i - index_subtracter)
+                        return_dict[k][1].pop(i - index_subtracter)
+                        # if an item is popped the index of the item after it becomes its index
+                        # so we need to subtract 1 from the index in order not to change the index of
+                        # each item
+                        index_subtracter += 1
+
+        # remove the keys with empty values (lists)
+        for k, v in copy.deepcopy(return_dict).items():
+            if v == ([], []):
+                return_dict.pop(k)
+
+        return return_dict
+
+
+def return_data(raw_data_and_country, command):
 
     # get country codes
     country_codes = country_code_getter.get_country_codes()
     countries = []
     for item in country_codes.keys():
         countries.append(item)
+
+    raw_data = raw_data_and_country[0]
+    country = raw_data_and_country[1]
 
     if raw_data is not None:
         if command.lower() == 'world wide today' or command == '1':
@@ -197,6 +286,17 @@ def return_data(raw_data, command):
                         x.append(main_v[k])
                     elif k == 'total_recovered':
                         y.append(main_v[k])
+
+            # put the results in increasing order
+            result_dict = dict(zip(x, y))
+            sorted_res_dict = {k: v for k, v in sorted(result_dict.items(), key=lambda i: i[1])}
+
+            x = []
+            y = []
+            for k, v in sorted_res_dict.items():
+                x.append(k)
+                y.append(v)
+
             return x, y
 
     # ==================================================================================== #
@@ -210,7 +310,7 @@ def return_data(raw_data, command):
             json_result.pop('info')
 
             x, y = list(json_result.keys()), list(json_result.values())
-            return x, y
+            return x, y, country
 
     # ==================================================================================== #
 
@@ -289,15 +389,20 @@ def return_data(raw_data, command):
     # ==================================================================================== #
 
         elif command.lower() == 'specific country timeline' or command == '5':
-            # transform into a dict
+            # transform into a list
             json_result = raw_data
             # get country name
             country_name = json_result['countrytimelinedata'][0]['info']['title']
+
             # remove unwanted data
             json_result.pop('countrytimelinedata')
-            # transform into better dict
+            json_result.pop['timelineitems'][0].pop('stat')
+
+            # transform into dict
             json_result = json_result['timelineitems'][0]
-            json_result.pop('stat')
+
+            # sort dict according to date
+            sorted_json_result = {k: v for k, v in sorted(json_result.items(), key=lambda unsorted_dict: datetime.datetime.strptime(unsorted_dict[0], '%m/%d/%y'))}
 
             new_daily_cases_y = []
             new_daily_deaths_y = []
@@ -305,7 +410,7 @@ def return_data(raw_data, command):
             total_recoveries_y = []
             total_deaths_y = []
             x_date = []
-            for main_k, main_v in json_result.items():
+            for main_k, main_v in sorted_json_result.items():
                 x_date.append(main_k)
                 for k in main_v.keys():
                     if k == 'new_daily_cases':
@@ -327,9 +432,6 @@ def return_data(raw_data, command):
             # transform into a list
             json_result = raw_data['data']
 
-            # remove unwanted data
-            json_result.pop()
-
             # starter values
             country_name = 'china'
             date = '1/22/20'
@@ -349,13 +451,54 @@ def return_data(raw_data, command):
                         date = dictionary[k]
 
                     elif k == 'cases':
-                        # make sure all countries start at x = 0
                         y_cases_int = dictionary[k]
                         all_countries_timeline_cases_dict[country_name].append(date)
                         all_countries_timeline_cases_dict[country_name].append(y_cases_int)
 
+            # sort according to date
+            sorted_all_countries_timeline_cases_dict = {}
+            for k, v in all_countries_timeline_cases_dict.items():
+                tup_list = []
+                sorted_list = []
+                for i, item in enumerate(v):
+                    if i % 2 == 0:
+                        date = item
+                    else:
+                        num = item
+                        tup = (date, num)
+                        tup_list.append(tup)
+
+                # sort the tuple in increasing date
+                tup_list.sort(key=lambda t: t[0])
+                # change back to normal list
+                for i in tup_list:
+                    for i2 in i:
+                        sorted_list.append(i2)
+                # append in new dict
+                sorted_all_countries_timeline_cases_dict[k] = sorted_list
+
+            # put x and y in 2 separate lists
+            result_dict = {}
+            x_list = []
+            y_list = []
+            for k in sorted_all_countries_timeline_cases_dict.keys():
+                unsorted_list = sorted_all_countries_timeline_cases_dict[k]
+                for i, item in enumerate(unsorted_list):
+                    if i % 2 == 0:
+                        x_list.append(item)
+                    else:
+                        y_list.append(item)
+                result_dict[k] = (x_list, y_list)
+                x_list = []
+                y_list = []
+
+            # sort the data in most latest cases order
+            sorted_result_dict = {k: v for k, v in sorted(result_dict.items(), key=lambda i: i[0])}
+
+            final_dict = return_data_for_specific_month(sorted_result_dict)
+
             # if we don't put None it will only return the keys
-            return all_countries_timeline_cases_dict, None
+            return final_dict, None
 
     # ==================================================================================== #
 
@@ -431,9 +574,6 @@ def return_data(raw_data, command):
             # transform into a list
             json_result = raw_data['data']
 
-            # remove unwanted data
-            json_result.pop()
-
             # starter values
             country_name = 'china'
             date = '1/22/20'
@@ -467,9 +607,6 @@ def return_data(raw_data, command):
             # transform into a list
             json_result = raw_data['data']
 
-            # remove unwanted data
-            json_result.pop()
-
             # starter values
             country_name = 'china'
             date = '1/22/20'
@@ -498,9 +635,10 @@ def return_data(raw_data, command):
             return all_countries_timeline_recovered_dict, None
 
 
-com = get_command()
-r_data = get_response(com)
-data = return_data(r_data, com)
-for i in data:
-    print(i)
+if __name__ == '__main__':
+    com = get_command()
+    r_data = get_response(com)
+    data = return_data(r_data, com)
+    for i in data:
+        print(i)
 

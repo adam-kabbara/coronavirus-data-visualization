@@ -57,3 +57,6 @@ def get_country_codes():
         clean_data = dict(zip(country_names, country_code))
         return clean_data
 
+
+if __name__ == '__main__':
+    country_codes = get_country_codes()
