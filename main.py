@@ -54,15 +54,8 @@ def main():
             # add number above each bar
             for rect in bars1:
                 height = rect.get_height()
-
-                if height < 90000:
-                    rotate = 90
-                    height_addition = 10
-                else:
-                    rotate = 0
-                    height_addition = 0
-                ax1.text(rect.get_x() + rect.get_width() / 2.0, height + height_addition ** 3, f'{int(height)}',
-                         ha='center', va='bottom', fontsize=5, rotation=rotate, c='green')
+                ax1.text(rect.get_x() + rect.get_width() / 2.0, height + 10 ** 3, f'{int(height)}',
+                         ha='center', va='bottom', fontsize=5, rotation=90, c='green')
 
             for rect in bars2:
                 height = rect.get_height()

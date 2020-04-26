@@ -1,6 +1,6 @@
 import requests
 import country_code_getter
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 import datetime
 import copy
 
@@ -491,14 +491,28 @@ def return_data(raw_data_and_country, command):
                 result_dict[k] = (x_list, y_list)
                 x_list = []
                 y_list = []
-
+            print(result_dict)
             # sort the data in most latest cases order
-            sorted_result_dict = {k: v for k, v in sorted(result_dict.items(), key=lambda i: i[0])}
+            sorted_result_dict = {k: v for k, v in sorted(result_dict.items(), key=lambda i: i[1][1][-1])}
 
-            final_dict = return_data_for_specific_month(sorted_result_dict)
+            before_final_dict = return_data_for_specific_month(sorted_result_dict)
+
+            # get data by chunks instead of displaying all data at once (first 50 most cases, second most 50 cases...)
+            chunk_data = list(before_final_dict.items())
+            chunk_data_list = []
+            if len(chunk_data) <= 50:
+                final_dict = before_final_dict
+            else:
+                for _ in range(len(chunk_data) // 50):
+                    lst = []
+                    for chunk in chunk_data:
+                        if len(lst) <= 50:
+                            lst.append(chunk)
+
+
 
             # if we don't put None it will only return the keys
-            return final_dict, None
+            return sorted_result_dict, None
 
     # ==================================================================================== #
 
